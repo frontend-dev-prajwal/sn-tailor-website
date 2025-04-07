@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@netlify/next": "^1.4.9",
     "firebase": "^11.6.0",
     "framer-motion": "^12.6.3",
     "gsap": "^3.12.7",
