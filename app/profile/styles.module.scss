@@ -1,0 +1,75 @@
+.profile {
+    max-width: 600px;
+    margin: 3rem auto;
+    padding: 2rem;
+    background: var(--bg);
+    color: var(--text);
+    border-radius: 12px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+    margin-top: 20vh;
+
+  h1 {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    text-align: center;
+  }
+
+  .info {
+    margin-bottom: 1.5rem;
+
+    label {
+      font-weight: bold;
+      display: block;
+      margin-bottom: 0.3rem;
+    }
+
+    p {
+      background: var(--card-bg);
+      padding: 0.5rem;
+      border-radius: 8px;
+    }
+
+    input {
+      padding: 0.5rem;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      width: 100%;
+    }
+  }
+
+  .actions {
+    display: flex;
+    gap: 1rem;
+
+    button {
+      flex: 1;
+      padding: 0.6rem 1rem;
+      font-weight: bold;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      background-color: #455ce9;
+      color: white;
+
+      &:last-child {
+        background-color: #999;
+      }
+    }
+  }
+
+  .editBtn {
+    padding: 0.6rem 1rem;
+    background-color: #455ce9;
+    color: white;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+
+  .loading {
+    text-align: center;
+    padding: 2rem;
+  }
+}

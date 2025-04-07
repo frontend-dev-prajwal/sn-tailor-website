@@ -1,0 +1,120 @@
+.designsContainer {
+  background-color: #fafafa;
+  min-height: 100vh;
+  position: relative;
+
+  .heading {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    height: 23vh;
+    width: 100vw;
+    top: 0vh;
+    background: #000;
+    color: white;
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    z-index: 1;
+    transition: transform 0.4s ease, opacity 0.4s ease;
+  }
+}
+
+.cards {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  padding-top: 30vh;
+}
+
+.cardsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 1.5rem;
+  width: 100%;
+  max-width: 1200px;
+}
+
+.card {
+  background: white;
+  border-radius: 1rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  }
+
+  img {
+    width: 100%;
+    height: 200px;
+    object-fit: contain;
+    border-bottom: 1px solid #eee;
+  }
+
+  h3 {
+    font-size: 1.2rem;
+    margin: 0.8rem 1rem 0.4rem;
+    color: #222;
+  }
+
+  p {
+    margin: 0 1rem 1rem;
+    color: #666;
+    font-size: 0.95rem;
+  }
+
+  button {
+    display: block;
+    width: calc(100% - 2rem);
+    margin: 0 auto 1rem;
+    padding: 0.6rem 1rem;
+    background-color: #ff4d4d;
+    color: white;
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s;
+
+    &:hover {
+      background-color: #e63939;
+    }
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .designsContainer {
+    .heading {
+      font-size: 1.5rem;
+      height: 20vh;
+    }
+  }
+
+  .cards {
+    padding-top: 25vh;
+  }
+
+  .cardsGrid {
+    grid-template-columns: 1fr;
+    padding: 0 1rem;
+  }
+
+  .card {
+    img {
+      height: 180px;
+    }
+
+    h3 {
+      font-size: 1rem;
+    }
+
+    p {
+      font-size: 0.85rem;
+    }
+  }
+}

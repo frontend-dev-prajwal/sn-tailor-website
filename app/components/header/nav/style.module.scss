@@ -1,0 +1,125 @@
+.menu {
+  height: 100%;
+  background-color: rgb(41, 41, 41);
+  position: fixed;
+  right: 0;
+  top: 0;
+  color: white;
+  z-index: 99;
+  cursor: none !important;
+  overflow-y: auto;
+
+  .body {
+    box-sizing: border-box;
+    height: 100%;
+    padding: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    .nav {
+      display: flex;
+      flex-direction: column;
+      font-size: 56px;
+      gap: 12px;
+      margin-top: 80px;
+
+      .header {
+        color: rgb(153, 153, 153);
+        border-bottom: 1px solid rgb(153, 153, 153);
+        text-transform: uppercase;
+        font-size: 11px;
+        margin-bottom: 40px;
+      }
+
+      a {
+        text-decoration: none;
+        color: white;
+        font-weight: 300;
+      }
+
+      .signOutButton {
+        padding: 12px 24px;
+        background-color: #ff4d4d;
+        width: 200px;
+        color: white;
+        border: none;
+        border-radius: 10px;
+        cursor: none;
+        font-size: 1rem;
+        transition: background-color 0.3s;
+
+        &:hover {
+          background-color: #e84343;
+        }
+      }
+
+      .userInfo {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-top: 0.1rem;
+        justify-content: center;
+        padding: 5px;
+        color: #fff;
+        width: 200px;
+
+        .avatar {
+          width: 48px;
+          height: 48px;
+          border-radius: 50%;
+          object-fit: cover;
+          border: 2px solid #fff;
+        }
+
+        .name {
+          font-size: 1rem;
+          font-weight: 500;
+        }
+      }
+    }
+  }
+
+  @media (max-width: 768px) {
+    .body {
+      padding: 60px 20px;
+
+      .nav {
+        font-size: 36px;
+
+        .signOutButton,
+        .userInfo {
+          width: 100%;
+        }
+      }
+    }
+  }
+
+  @media (max-width: 480px) {
+    .body {
+      padding: 40px 15px;
+
+      .nav {
+        font-size: 28px;
+
+        .signOutButton {
+          padding: 10px 16px;
+          font-size: 0.9rem;
+        }
+
+        .userInfo {
+          gap: 8px;
+
+          .avatar {
+            width: 40px;
+            height: 40px;
+          }
+
+          .name {
+            font-size: 0.9rem;
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,27 @@
+.link {
+    position: relative;
+    display: flex;
+    align-items: center;
+    z-index: 100;
+    cursor: none;
+  
+    .indicator {
+      width: 10px;
+      height: 10px;
+      background-color: white;
+      border-radius: 50%;
+      position: absolute;
+      left: -30px;
+    }
+  
+    @media (max-width: 600px) {
+      flex-direction: column;
+      align-items: flex-start;
+  
+      .indicator {
+        left: 0;
+        top: -20px;
+      }
+    }
+  }
+  

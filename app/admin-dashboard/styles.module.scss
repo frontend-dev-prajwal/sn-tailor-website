@@ -1,0 +1,85 @@
+.container {
+  max-width: 600px;
+  margin: auto;
+  padding: 2rem;
+  background: #f9f9f9;
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+  h2 {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    font-size: 2rem;
+  }
+
+  .form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+
+    input,
+    button {
+      padding: 0.8rem;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      font-size: 1rem;
+    }
+
+    button {
+      background-color: #333;
+      color: white;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+
+      &:hover {
+        background-color: #555;
+      }
+    }
+  }
+
+  .message {
+    margin-top: 1rem;
+    text-align: center;
+    font-weight: bold;
+    color: green;
+  }
+
+  .loading {
+    text-align: center;
+    padding: 2rem;
+    font-size: 1.2rem;
+  }
+
+  // Tablet responsiveness
+  @media (max-width: 768px) {
+    padding: 1.5rem;
+
+    h2 {
+      font-size: 1.8rem;
+    }
+
+    .form input,
+    .form button {
+      font-size: 0.95rem;
+    }
+  }
+
+  // Mobile responsiveness
+  @media (max-width: 480px) {
+    padding: 1rem;
+
+    h2 {
+      font-size: 1.5rem;
+    }
+
+    .form input,
+    .form button {
+      font-size: 0.9rem;
+      padding: 0.7rem;
+    }
+
+    .loading {
+      font-size: 1rem;
+    }
+  }
+}
