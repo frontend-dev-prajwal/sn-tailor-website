@@ -7,11 +7,14 @@ import { updateEmail } from "firebase/auth";
 import { useRouter } from "next/navigation";
 import styles from "./styles.module.scss";
 import Navs from "../components/header/page";
+import { AnimatePresence } from "framer-motion";
+import Preloads from "../preloads/preload";
 
 export default function Profile() {
   const [userData, setUserData] = useState(null);
   const [editMode, setEditMode] = useState(false);
   const [formData, setFormData] = useState({ name: "", email: "" });
+  const [preloadComplete, setPreloadComplete] = useState(false);
   const [loading, setLoading] = useState(true);
   const router = useRouter();
 
@@ -62,7 +65,16 @@ export default function Profile() {
     }
   };
 
-  if (loading) return <div className={styles.loading}>Loading...</div>;
+  if(!preloadComplete){
+    return (
+      <AnimatePresence mode="wait">
+        <Preloads
+          pageName="Profile"
+          onComplete={() => setPreloadComplete(true)}
+        />
+      </AnimatePresence>
+    )
+  }
 
   return (
     <>

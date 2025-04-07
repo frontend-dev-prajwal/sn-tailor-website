@@ -7,11 +7,14 @@ import { useAuth } from "../context/page";
 import styles from "./styles.module.scss";
 import Navs from "../components/header/page";
 import Footer from "../components/footer/page";
+import { AnimatePresence } from "framer-motion";
+import Preloads from "../preloads/preload";
 
 export default function WishlistPage() {
   const { currentUser } = useAuth();
   const [wishlist, setWishlist] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [preloadComplete, setPreloadComplete] = useState(false);
   const [hideHeader, setHideHeader] = useState(false);
 
   // Track scroll direction to show/hide heading
@@ -60,7 +63,17 @@ export default function WishlistPage() {
   }, [currentUser]);
 
   if (!currentUser) return <p>Please sign in to view your wishlist.</p>;
-  if (loading) return <p>Loading wishlist...</p>;
+  
+  if(!preloadComplete){
+    return (
+      <AnimatePresence mode="wait">
+        <Preloads
+          pageName="Wishlist"
+          onComplete={() => setPreloadComplete(true)}
+        />
+      </AnimatePresence>
+    )
+  }
 
   return (
     <>

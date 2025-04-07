@@ -2,14 +2,16 @@
 
 import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import { Phone, Mail } from "lucide-react";
 import styles from "./styles.module.scss";
+import Preloads from "../preloads/preload";
 
 export default function About() {
   const { theme, setTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
   const [pulled, setPulled] = useState(false);
+  const [preloadComplete, setPreloadComplete] = useState(false);
 
   useEffect(() => setMounted(true), []);
   if (!mounted) return null;
@@ -21,6 +23,17 @@ export default function About() {
       setPulled(false);
     }, 400);
   };
+
+  if(!preloadComplete){
+    return (
+      <AnimatePresence mode="wait">
+        <Preloads
+          pageName="About"
+          onComplete={() => setPreloadComplete(true)}
+        />
+      </AnimatePresence>
+    )
+  }
 
   return (
     <main className={styles.about}>

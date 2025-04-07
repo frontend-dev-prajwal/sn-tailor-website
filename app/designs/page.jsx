@@ -7,12 +7,15 @@ import { useAuth } from "../context/page";
 import styles from "./styles.module.scss";
 import Navs from "../components/header/page";
 import Footer from "../components/footer/page";
+import { AnimatePresence } from "framer-motion";
+import Preloads from "../preloads/preload";
 
 export default function DesignsPage() {
   const [designs, setDesigns] = useState([]);
   const [loading, setLoading] = useState(true);
   const [wishlistIds, setWishlistIds] = useState([]);
   const { currentUser } = useAuth();
+  const [preloadComplete, setPreloadComplete] = useState(false);
 
   // Fetch all designs
   useEffect(() => {
@@ -70,7 +73,16 @@ export default function DesignsPage() {
     }
   };
 
-  if (loading) return <p className={styles.loading}>Loading designs...</p>;
+  if(!preloadComplete){
+    return (
+      <AnimatePresence mode="wait">
+        <Preloads
+          pageName="Designs"
+          onComplete={() => setPreloadComplete(true)}
+        />
+      </AnimatePresence>
+    )
+  }
 
   return (
     <>
